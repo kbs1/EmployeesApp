@@ -49,6 +49,14 @@ class EmployeesController extends Controller
 		return redirect()->route('employees.listing')->with('success', 'Employee successfully updated.');
 	}
 
+	public function delete($id)
+	{
+		$employee = Employee::findOrFail($id);
+		$employee->delete();
+
+		return redirect()->route('employees.listing')->with('success', 'Employee successfully deleted.');
+	}
+
 	protected function entries()
 	{
 		$filter = (new Filter(Employee::query()))

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
-use App\Models\Employee;
+use App\Models\{Employee, Project};
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +21,15 @@ class DatabaseSeeder extends Seeder
 				'age' => rand(18, 45),
 				'gender' => ['male', 'female'][rand(0, 1)],
 				'employed_at' => now()->subYears(rand(0, 5))->subMonths(rand( 0, 5))->subDays(rand(0, 30)),
+				'hourly_rate' => rand(15, 40),
+			]);
+		}
+
+		for ($i = 0; $i < 100; $i++) {
+			Project::create([
+				'name' => $faker->words(3, true),
+				'technology' => $faker->words(3, true),
+				'client' => $faker->company(),
 				'hourly_rate' => rand(15, 40),
 			]);
 		}

@@ -23,3 +23,8 @@ Route::put('/employees/{id}/edit', 'EmployeesController@update')->name('employee
 Route::get('/employees/{id}/delete', 'EmployeesController@delete')->name('employees.delete');
 
 Route::get('/projects', 'ProjectsController@listing')->name('projects.listing');
+Route::get('/projects/add', 'ProjectsController@add')->name('projects.add');
+Route::post('/projects/add', 'ProjectsController@create')->name('projects.create');
+Route::get('/projects/{id}/edit', 'ProjectsController@edit')->name('projects.edit');
+Route::put('/projects/{id}/edit', 'ProjectsController@update')->name('projects.update');
+Route::get('/projects/{id}/delete', 'ProjectsController@delete')->name('projects.delete');

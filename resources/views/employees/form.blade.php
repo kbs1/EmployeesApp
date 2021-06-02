@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-	Add employee
+	{{ $employee->exists ? 'Update' : 'Add' }} employee
 @endsection
 
 @section('content')

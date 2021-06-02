@@ -49,7 +49,7 @@ abstract class SingleFileDriver implements Driver
 		$keyValue = $model->getKey();
 
 		foreach ($models as $i => $m) {
-			if ($m[$keyName] === $keyValue) {
+			if ($m[$keyName] == $keyValue) {
 				unset($models[$i]);
 				break;
 			}

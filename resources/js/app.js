@@ -35,3 +35,35 @@ document.querySelectorAll('.datepicker').forEach(element => {
 
 	datepicker(element, options);
 });
+
+// dashboard chart
+import Chart from 'chart.js/auto';
+
+window.initDashboardChart = function(labels, data) {
+	new Chart(document.getElementById('employees-age-chart').getContext('2d'), {
+		type: 'bar',
+		data: {
+			labels: labels,
+			datasets: [
+				{
+					label: 'Count',
+					data: data,
+					borderColor: 'rgba(0, 0, 0, 0.5)',
+					backgroundColor: 'rgba(0, 0, 0, 0.5)',
+				},
+			],
+		},
+		options: {
+			responsive: true,
+			plugins: {
+				legend: {
+					display: false,
+				},
+				title: {
+					display: true,
+					text: 'Employees by age',
+				},
+			},
+		}
+	});
+}

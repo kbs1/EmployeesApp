@@ -8,7 +8,7 @@ Requirements
 ============
 - PHP `^7.3|^8.0`
 - composer
-- NodeJS `^12.0`
+- NodeJS `^12`
 
 Installation
 ============

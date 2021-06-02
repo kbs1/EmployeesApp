@@ -1,4 +1,6 @@
-<div class="d-flex align-items-center mb-4">
-	<input name="{{ $filter->parameterName() }}" id="{{ $filter->parameterName() }}" type="checkbox" value="1"{{ $filter->currentValue() ? ' checked' : '' }}>
-	<label for="{{ $filter->parameterName() }}" class="ml-2 text-gray-600 text-sm d-block">{{ $filter->label() }}</label>
+<div class="form-check mb-3">
+	<input class="form-check-input" type="checkbox" name="{{ $filter->parameterName() }}" id="{{ $filter->parameterName() }}" value="1"{{ $filter->currentValue() ? ' checked' : '' }}>
+	<label class="form-check-label" for="{{ $filter->parameterName() }}">
+		{{ $filter->label() }}
+	</label>
 </div>

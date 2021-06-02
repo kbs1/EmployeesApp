@@ -40,4 +40,10 @@
 		@endforelse
 		</tbody>
 	</table>
+
+	{{ $entries->links() }}
+
+	@foreach ($entries->columns() as $column)
+		{!! $column->renderFilters() !!}
+	@endforeach
 @endsection

@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
 	<nav>
-		<ul class="flex items-center justify-center mt-4">
+		<ul class="d-flex align-items-center justify-items-center mt-4">
 			{{-- Pagination Elements --}}
 			@foreach ($elements as $element)
 				{{-- "Three Dots" Separator --}}

@@ -1,6 +1,16 @@
+// bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+// font awesome free
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
+
+// js-datepicker
+@import '~js-datepicker/src/datepicker';
+
+// helpers
+.min-width-0 {
+	min-width: 0;
+}

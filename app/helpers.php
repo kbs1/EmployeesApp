@@ -1,18 +1,5 @@
 <?php
 
-use App\Core\Setting;
-
-function settings($key = null, $default = null)
-{
-	$instance = resolve(Setting::class);
-
-	if ($key === null) {
-		return $instance;
-	}
-
-	return $instance->get($key, $default);
-}
-
 function random_readable_string(int $length = 10)
 {
 	$c = 'ACEFHJKLMNPRTUVWXY';

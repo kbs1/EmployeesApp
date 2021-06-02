@@ -1,4 +1,4 @@
-@component('admin.components.modal')
+@component('components.modal')
 	@slot('id')
 		filters-modal-{{ $column->id() }}
 	@endslot
@@ -8,18 +8,20 @@
 	@endslot
 
 	@slot('title')
-		{{ $column->name() }}
+		Filter {{ strtolower($column->name()) }}
 	@endslot
 
 	<form action="" method="get">
 		{!! array_to_hidden_inputs($column->otherColumnsParameters()) !!}
 
-		@foreach ($column->filters() as $filter)
-			{!! $filter->render() !!}
-		@endforeach
+		<div class="modal-body">
+			@foreach ($column->filters() as $filter)
+				{!! $filter->render() !!}
+			@endforeach
+		</div>
 
-		<div class="flex justify-end pt-2">
-			<button type="submit" class="button bg-primary border-primary text-white">Filtrovať</button>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-primary">Filter</button>
 		</div>
 	</form>
 @endcomponent

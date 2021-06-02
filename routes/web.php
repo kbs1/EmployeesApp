@@ -16,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'DashboardController@index')->name('dashboard');
 
 Route::get('/employees', 'EmployeesController@listing')->name('employees.listing');
+Route::get('/employees/add', 'EmployeesController@add')->name('employees.add');
+Route::post('/employees/add', 'EmployeesController@create')->name('employees.create');
+Route::get('/employees/{id}/edit', 'EmployeesController@edit')->name('employees.edit');
+Route::put('/employees/{id}/edit', 'EmployeesController@update')->name('employees.update');
+Route::get('/employees/{id}/delete', 'EmployeesController@delete')->name('employees.delete');
 
 Route::get('/projects', 'ProjectsController@listing')->name('projects.listing');

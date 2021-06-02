@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{{ config('app.name') }}</title>
+		<title>@yield('title') | {{ config('app.name') }}</title>
 		<link href="{{ mix('css/app.css') }}" rel="stylesheet">
 	</head>
 
@@ -29,6 +29,8 @@
 								<a class="nav-link{{ ($activePage ?? '') == 'projects' ? ' active' : '' }}" href="{{ route('projects.listing') }}">Projects</a>
 							</li>
 						</ul>
+
+						@yield('controls')
 					</div>
 				</div>
 			</nav>
@@ -36,6 +38,30 @@
 
 		<main class="mt-5 pt-4 mb-3 flex-shrink-0">
 			<div class="container">
+				@if ($errors->any())
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						Validation errors:
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				@endif
+
+				@foreach (['success', 'warning', 'error'] as $session_key)
+					@if (Session::has($session_key))
+						@php($alert_class = $session_key == 'error' ? 'danger' : $session_key)
+						<div class="alert alert-{{ $alert_class }} alert-dismissible fade show" role="alert">
+							{{ Session::get($session_key) }}
+
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					@endif
+				@endforeach
+
 				@yield('content')
 			</div>
 		</main>

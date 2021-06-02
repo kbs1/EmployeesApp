@@ -20,14 +20,13 @@ abstract class SingleFileDriver implements Driver
 		$file = $this->filePath($directory);
 		$models = $this->load($file);
 
-		if ($model->wasChanged($keyName = $model->getKeyName())) {
-			$originalKeyValue = $model->getOriginal($keyName);
+		$keyName = $model->getKeyName();
+		$originalKeyValue = $model->getOriginal($keyName);
 
-			foreach ($models as $i => $m) {
-				if ($m[$keyName] === $originalKeyValue) {
-					unset($models[$i]);
-					break;
-				}
+		foreach ($models as $i => $m) {
+			if ($m[$keyName] == $originalKeyValue) {
+				unset($models[$i]);
+				break;
 			}
 		}
 

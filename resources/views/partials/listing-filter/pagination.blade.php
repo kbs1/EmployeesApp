@@ -1,22 +1,23 @@
 @if ($paginator->hasPages())
 	<nav>
-		<ul class="d-flex align-items-center justify-items-center mt-4">
-			{{-- Pagination Elements --}}
+		<ul class="pagination justify-content-end">
 			@foreach ($elements as $element)
-				{{-- "Three Dots" Separator --}}
 				@if (is_string($element))
-					<li class="text-sm mx-1" aria-disabled="true"><span>{{ $element }}</span></li>
+					<li class="page-item disabled">
+						<a href="#" class="page-link" tabindex="-1" aria-disabled="true">{{ $element }}</a>
+					</li>
 				@endif
 
-				{{-- Array Of Links --}}
 				@if (is_array($element))
 					@foreach ($element as $page => $url)
 						@if ($page == $paginator->currentPage())
-							<li aria-current="page" class="mx-1">
-								<a href="#" onclick="return false" class="font-bold text-sm text-black">{{ $page }}</a>
+							<li class="page-item active" aria-current="page">
+								<a href="#" class="page-link" onclick="return false">{{ $page }}</a>
 							</li>
 						@else
-							<li class="mx-1"><a href="{{ $url }}" class="font-bold text-sm text-blue">{{ $page }}</a></li>
+							<li class="page-item">
+								<a href="{{ $url }}" class="page-link">{{ $page }}</a>
+							</li>
 						@endif
 					@endforeach
 				@endif

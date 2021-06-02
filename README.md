@@ -18,8 +18,9 @@ Installation
 4. execute `php artisan key:generate`
 5. execute `npm ci`
 6. execute `npm run production`
-7. execute `php artisan serve`
-8. navigate to `http://localhost:8000`
+7. execute `php artisan db:seed` (optional, can be executed multiple times, seeds sample data)
+8. execute `php artisan serve`
+9. navigate to `http://localhost:8000`
 
 Have fun!
 
@@ -31,7 +32,7 @@ Modifying the schema with some data present can cause unintended side effects, i
 
 Customising the employees listing, filtering and / or form involves editing the appropriate controllers / views / `FormRequest`s.
 
-Filtering is implemented as a bundle of ready-made fluent filters in the `App\Support` namespace.
+Filtering is implemented as a bundle of ready-made fluent filters in the `App\Support\ListingFilter` namespace.
 
 About Orbit
 ===========

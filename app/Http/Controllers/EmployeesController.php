@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Http\Requests\StoreEmployeeRequest;
 use App\Support\ListingFilter\Filter;
 
 class EmployeesController extends Controller
@@ -13,6 +14,39 @@ class EmployeesController extends Controller
 			'activePage' => 'employees',
 			'entries' => $this->entries(),
 		]);
+	}
+
+	public function add()
+	{
+		return view('employees.form', [
+			'activePage' => 'employees',
+			'employee' => new Employee,
+		]);
+	}
+
+	public function create(StoreEmployeeRequest $request)
+	{
+		$employee = new Employee($request->validated());
+		$employee->save();
+
+		return redirect()->route('employees.listing')->with('success', 'Employee successfully created.');
+	}
+
+	public function edit($id)
+	{
+		return view('employees.form', [
+			'activePage' => 'employees',
+			'employee' => Employee::findOrFail($id),
+		]);
+	}
+
+	public function update($id, StoreEmployeeRequest $request)
+	{
+		$employee = Employee::findOrFail($id);
+		$employee->fill($request->validated());
+		$employee->save();
+
+		return redirect()->route('employees.listing')->with('success', 'Employee successfully updated.');
 	}
 
 	protected function entries()

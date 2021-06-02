@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DashboardController@index')->name('dashboard');
+
+Route::get('/employees', 'EmployeesController@listing')->name('employees.listing');
+
+Route::get('/projects', 'ProjectsController@listing')->name('projects.listing');

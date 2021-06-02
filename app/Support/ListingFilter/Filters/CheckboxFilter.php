@@ -10,7 +10,7 @@ class CheckboxFilter extends BaseFilter
 		if ($this->currentValue() === null)
 			return null;
 
-		return $this->label() . ': ' . ($this->currentValue() ? 'Áno' : 'Nie');
+		return $this->label() . ': ' . ($this->currentValue() ? 'Yes' : 'No');
 	}
 
 	/* filtering */

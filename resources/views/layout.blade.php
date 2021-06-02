@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,7 @@
 		<link href="{{ mix('css/app.css') }}" rel="stylesheet">
 	</head>
 
-	<body>
+	<body class="d-flex flex-column h-100">
 		<header>
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 				<div class="container-fluid">
@@ -34,15 +34,18 @@
 			</nav>
 		</header>
 
-		<main class="mt-5 pt-4">
+		<main class="mt-5 pt-4 mb-3 flex-shrink-0">
 			<div class="container">
 				@yield('content')
 			</div>
-
-			<footer class="container mt-3 border-top pt-2">
-				<p>&copy; {{ date('Y') }}</p>
-			</footer>
 		</main>
+
+		<footer class="footer mt-auto border-top pt-2">
+			<div class="container">
+				<p>&copy; {{ date('Y') }}</p>
+			</div>
+		</footer>
+
 		<script src="{{ mix('js/app.js') }}"></script>
 	</body>
 </html>

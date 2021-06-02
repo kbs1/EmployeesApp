@@ -4,12 +4,12 @@
 	@if ($column->sortable())
 		@if ($column->isSorting())
 			@if ($column->sortDirection() == 'desc')
-				<a href="{{ $column->sortUrl('asc') }}" class="mr-3" v-tooltip="'Zoradiť vzostupne'"><i class="fas fa-sort-up"></i></a>
+				<a href="{{ $column->sortUrl('asc') }}" class="mr-3" v-tooltip="'Sort descending'"><i class="fas fa-sort-up"></i></a>
 			@else
-				<a href="{{ $column->sortUrl('desc') }}" class="mr-3" v-tooltip="'Zoradiť zostupne'"><i class="fas fa-sort-down"></i></a>
+				<a href="{{ $column->sortUrl('desc') }}" class="mr-3" v-tooltip="'Sort ascending'"><i class="fas fa-sort-down"></i></a>
 			@endif
 		@else
-			<a href="{{ $column->sortUrl('desc') }}" class="mr-3" v-tooltip="'Zoradiť zostupne'"><i class="fas fa-sort-down text-muted"></i></a>
+			<a href="{{ $column->sortUrl('desc') }}" class="mr-3" v-tooltip="'Sort ascending'"><i class="fas fa-sort-down text-muted"></i></a>
 		@endif
 	@endif
 

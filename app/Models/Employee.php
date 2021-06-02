@@ -12,14 +12,17 @@ class Employee extends Model
 	use Orbital;
 
 	protected $guarded = [];
-	protected $dates = ['published_at'];
+	protected $dates = ['employed_at'];
 
 	public static function schema(Blueprint $table)
 	{
 		$table->increments('id');
-		$table->string('title');
-		$table->string('slug');
-		$table->datetime('published_at');
-		$table->string('foo');
+		$table->string('name');
+		$table->string('surname');
+		$table->string('position');
+		$table->integer('age');
+		$table->enum('gender', ['male', 'female']);
+		$table->date('employed_at');
+		$table->decimal('hourly_rate');
 	}
 }

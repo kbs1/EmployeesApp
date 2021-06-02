@@ -9,7 +9,7 @@ abstract class BaseRangeFilter extends BaseFilter
 	public function __construct(Column $column, string $id)
 	{
 		parent::__construct($column, $id);
-		$this->label = $column->name() . ' od - do';
+		$this->label = $column->name() . ' from - to';
 	}
 
 	/* filter properties */
@@ -34,6 +34,6 @@ abstract class BaseRangeFilter extends BaseFilter
 		if ($value === null)
 			return null;
 
-		return $this->label() . ': ' . implode(' - ', [trim($value[0] ?? '') !== '' ? $value[0] : 'neurčené', trim($value[1] ?? '') !== '' ? $value[1] : 'neurčené']);
+		return $this->label() . ': ' . implode(' - ', [trim($value[0] ?? '') !== '' ? $value[0] : 'unspecified', trim($value[1] ?? '') !== '' ? $value[1] : 'unspecified']);
 	}
 }
